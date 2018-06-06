@@ -18,7 +18,6 @@ jobs:
 
     environment:
       RAILS_ENV: "test"
-      TEST_ENV_NUMBER: 2
       PGHOST: "localhost"
       PGUSER: "postgres"
 
@@ -43,8 +42,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - run: bundle exec parallel:setup
 
       # run tests!
       - run:
