@@ -42,7 +42,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: bundle exec parallel:setup
+      - run: bundle exec rails parallel:setup
 
       # run tests!
       - run:
