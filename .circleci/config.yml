@@ -50,7 +50,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            mkdir test/reports
+            mkdir -p test/reports
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
 
             bundle exec rails parallel:test
