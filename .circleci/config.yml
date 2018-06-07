@@ -53,7 +53,7 @@ jobs:
             mkdir -p test/reports
             TEST_FILES="$(circleci tests glob "test/**/*_test.rb" | circleci tests split --split-by=timings)"
             echo $TEST_FILES
-            bundle exec rails parallel:test $TEST_FILES
+            bundle exec parallel_test $TEST_FILES
 
       # collect reports
       - store_test_results:
